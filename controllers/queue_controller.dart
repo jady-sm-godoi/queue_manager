@@ -1,21 +1,25 @@
-import 'dart:io';
 import '../models/queue.dart';
 import '../models/patient.dart';
 import '../views/queue_view.dart';
 
 class QueueController {
-  void insert(Queue queue) {
+  static void insert(Queue queue) {
     // creating a new patient
-    Patient newPatient = QueueView().insertPatient(queue);
-
-    // choose the last index
-    int index = orderingList(queue, newPatient);
-
+    Patient newPatient = insertPatientView(queue);
     // inserting the new patient on the queue
-    queue.insertPatient(index, newPatient);
+    queue.insertPatient(newPatient);
   }
 
-  int orderingList(Queue queue, Patient patient) {
+  static void edit(Queue queue) {
+    //get index
+    int index = queue.searchPatient();
+    //get edited patient
+    Patient editedPatient = editPatientView(queue, index);
+    //put edited patient in list
+    queue.editPatient(index, editedPatient);
+  }
+
+  static int orderingList(Queue queue, Patient patient) {
     int i = 0;
     if (queue.patients.length == 0) {
       return i;

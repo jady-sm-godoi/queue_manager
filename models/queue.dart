@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'patient.dart';
+import '../controllers/queue_controller.dart';
 
 class Queue {
   List<Patient> patients = [];
@@ -14,8 +15,11 @@ class Queue {
     }
   }
 
-  void insertPatient(int index, Patient patient) {
-    this.patients.insert(index, patient);
+  void insertPatient(Patient patient) {
+    // get new index for new patient
+    int newIndex = QueueController.orderingList(this, patient);
+    // insert new patient
+    this.patients.insert(newIndex, patient);
   }
 
   int searchPatient() {
@@ -26,39 +30,11 @@ class Queue {
     return index - 1;
   }
 
-  void editPatient() {
-    print("=" * 80);
-    print("EDIT PATIENT");
-    print("=" * 80 + "\n");
-
-    int index = searchPatient();
-    while (true) {
-      print("[N]ame | [G]ender | [A]ge | [L]evel | e[X]it");
-      stdout.write("What field do you want to edit? ");
-      String answer = stdin.readLineSync()!;
-
-      if ("Nn".contains(answer)) {
-        stdout.write("insert name: ");
-        String newName = stdin.readLineSync()!;
-        this.patients[index].name = newName;
-      } else if ("Gg".contains(answer)) {
-        stdout.write("insert gender: ");
-        String newGender = stdin.readLineSync()!;
-        this.patients[index].gender = newGender;
-      } else if ("Aa".contains(answer)) {
-        stdout.write("insert age: ");
-        int newAge = int.parse(stdin.readLineSync()!);
-        this.patients[index].age = newAge;
-      } else if ("Ll".contains(answer)) {
-        stdout.write("insert level: ");
-        int newLevel = int.parse(stdin.readLineSync()!);
-        this.patients[index].level = newLevel;
-      } else if ("Xx".contains(answer)) {
-        break;
-      } else {
-        print("\nunknown option, try again.");
-      }
-    }
+  void editPatient(int index, Patient editedPatient) {
+    // remove patient
+    this.patients.removeAt(index);
+    // insert edited patient
+    this.insertPatient(editedPatient);
   }
 
   void callPatient() {
