@@ -11,16 +11,15 @@ void main() {
     String option = stdin.readLineSync()!;
 
     if ("Ll".contains(option)) {
-      // print("List patients");
       queue.listPatients();
     } else if ("Ii".contains(option)) {
       queue.insertPatient();
     } else if ("Ee".contains(option)) {
-      print("Edit patient");
+      queue.editPatient();
     } else if ("Cc".contains(option)) {
-      print("Calling patient...");
+      queue.callPatient();
     } else if ("Dd".contains(option)) {
-      print("Delete");
+      queue.deletePatient();
     } else if ("Xx".contains(option)) {
       print("Exit");
       break;
