@@ -122,10 +122,10 @@ class Queue {
       return i;
     }
     while (i < patients.length) {
-      if (patients[i].level! > newPatient.level) {
+      if (patients[i].level > newPatient.level) {
         i++;
-      } else if (patients[i].level! == newPatient.level) {
-        if (patients[i].age! >= newPatient.age) {
+      } else if (patients[i].level == newPatient.level) {
+        if (patients[i].age >= newPatient.age) {
           i++;
         } else {
           break;
