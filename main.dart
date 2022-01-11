@@ -1,7 +1,8 @@
 import 'dart:io';
-import 'patient.dart';
+import 'queue.dart';
 
 void main() {
+  Queue queue = Queue();
   print("Welcome to the show!");
 
   while (true) {
@@ -10,9 +11,10 @@ void main() {
     String option = stdin.readLineSync()!;
 
     if ("Ll".contains(option)) {
-      print("List patients");
+      // print("List patients");
+      queue.listPatients();
     } else if ("Ii".contains(option)) {
-      print("Insert patient");
+      queue.insertPatient();
     } else if ("Ee".contains(option)) {
       print("Edit patient");
     } else if ("Cc".contains(option)) {
