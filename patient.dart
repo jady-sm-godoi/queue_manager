@@ -1,21 +1,33 @@
 class Patient {
-  String? name;
-  String? gender;
-  int? age;
-  int? level;
+  String name;
+  String gender;
+  int age;
+  int level;
 
-  Patient({this.name, this.gender, this.age, this.level});
+  Patient({
+    this.name = "Patient",
+    this.gender = "M",
+    this.age = 0,
+    this.level = 1,
+  });
 
   @override
   String toString() {
-    if (this.name != null &&
-        this.gender != null &&
-        this.age != null &&
-        this.level != null) {
-      String gender = "Mm".contains(this.gender!) ? "Male" : "Female";
-      return "L-${this.level}  $gender  ${this.name} (${this.age})";
-    } else {
-      return "Instance of 'Patient'";
+    String level = "";
+    switch (this.level) {
+      case 1:
+        level = "🟦";
+        break;
+      case 2:
+        level = "🟨";
+        break;
+      case 3:
+        level = "🟥";
+        break;
     }
+
+    String gender = "Mm".contains(this.gender) ? "👨" : "👩";
+
+    return "$level  $gender  ${this.name} (${this.age})";
   }
 }
