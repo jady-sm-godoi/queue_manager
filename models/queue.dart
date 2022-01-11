@@ -2,14 +2,7 @@ import 'dart:io';
 import 'patient.dart';
 
 class Queue {
-  List<Patient> patients = [
-    // Patient(
-    //   name: 'Zeca',
-    //   gender: 'M',
-    //   age: 2,
-    //   level: 0,
-    // )
-  ];
+  List<Patient> patients = [];
 
   void listPatients() {
     print("-" * 80);
@@ -21,34 +14,8 @@ class Queue {
     }
   }
 
-  void insertPatient() {
-    //capturing data from user -> view
-    stdout.write("insert name: ");
-    String name = stdin.readLineSync()!;
-
-    stdout.write("insert gender (F/M): ");
-    String gender = stdin.readLineSync()!;
-
-    stdout.write("insert age: ");
-    int age = int.parse(stdin.readLineSync()!);
-
-    stdout.write("insert level (0, 1, 2): ");
-    int level = int.parse(stdin.readLineSync()!);
-
-    //building new patient for insert
-    Patient newPatient = Patient(
-      name: name,
-      gender: gender,
-      age: age,
-      level: level,
-    );
-
-    //ordering list
-    int index = orderingList(newPatient);
-
-    //inserting
-    // this.patients.add(newPatient);
-    this.patients.insert(index, newPatient);
+  void insertPatient(int index, Patient patient) {
+    this.patients.insert(index, patient);
   }
 
   int searchPatient() {
@@ -114,26 +81,5 @@ class Queue {
     if ("Ss".contains(answer)) {
       patients.removeAt(index);
     }
-  }
-
-  int orderingList(newPatient) {
-    int i = 0;
-    if (patients.length == 0) {
-      return i;
-    }
-    while (i < patients.length) {
-      if (patients[i].level > newPatient.level) {
-        i++;
-      } else if (patients[i].level == newPatient.level) {
-        if (patients[i].age >= newPatient.age) {
-          i++;
-        } else {
-          break;
-        }
-      } else {
-        break;
-      }
-    }
-    return i;
   }
 }

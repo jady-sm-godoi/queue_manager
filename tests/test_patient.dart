@@ -1,7 +1,5 @@
-import 'dart:math';
-
 import 'package:test/test.dart';
-import '../patient.dart';
+import '../models/patient.dart';
 
 void main() {
   test("creating a patient without arguments", () {
