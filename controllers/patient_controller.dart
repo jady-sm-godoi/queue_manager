@@ -1,4 +1,5 @@
 import 'dart:io';
+import '../views/views.dart';
 
 String getName() {
   stdout.write("\n insert name: ");
@@ -8,7 +9,7 @@ String getName() {
 String getGender() {
   String gender = "#";
   while (!"MmFf".contains(gender)) {
-    print("\n M = 👨  F = 👩");
+    menu("M = 👨  F = 👩");
     stdout.write(" insert gender: ");
     gender = stdin.readLineSync()!;
     if (!"MmFf".contains(gender)) {
@@ -35,7 +36,7 @@ int getAge() {
 int getLevel() {
   String level = "#";
   while (!"123".contains(level)) {
-    print("\n 1 = 🟦  2 = 🟨  3 = 🟥");
+    menu("1 = 🟦  2 = 🟨  3 = 🟥");
     stdout.write(" insert level: ");
     level = stdin.readLineSync()!;
     if (!"123".contains(level)) {

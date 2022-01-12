@@ -1,6 +1,6 @@
 import '../models/queue.dart';
 import '../models/patient.dart';
-import '../views/queue_view.dart';
+import '../views/views.dart';
 
 void insert(Queue queue) {
   // creating a new patient

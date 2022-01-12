@@ -1,18 +1,18 @@
 import 'dart:io';
 import 'patient.dart';
 import '../controllers/queue_controller.dart';
+import '../views/views.dart';
 
 class Queue {
   List<Patient> patients = [];
 
   List? listPatients() {
-    print("-" * 80);
-    print("LIST OF PATIENTS");
-    print("-" * 80 + "\n");
+    subTitle("List of Patients");
 
     for (var i = 0; i < this.patients.length; i++) {
       print(' ${i + 1} - ${this.patients[i]}');
     }
+    print("");
   }
 
   void insertPatient(Patient patient) {

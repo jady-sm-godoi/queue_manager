@@ -1,13 +1,16 @@
 import 'dart:io';
 import 'models/queue.dart';
 import 'controllers/queue_controller.dart';
+import 'views/views.dart';
 
 void main() {
   Queue queue = Queue();
-  print("Welcome to the List Manager!");
+  title("Welcome to the List Manager!");
+  // print("Welcome to the List Manager!");
 
   while (true) {
-    print("\n[L]ist  [I]nsert  [E]dit  [C]all  [D]elete  e[X]it\n");
+    menu("[L]ist  [I]nsert  [E]dit  [C]all  [D]elete  e[X]it");
+    // print("\n[L]ist  [I]nsert  [E]dit  [C]all  [D]elete  e[X]it\n");
     stdout.write("Enter your option: ");
     String option = stdin.readLineSync()!;
 
