@@ -17,7 +17,7 @@ class Queue {
 
   void insertPatient(Patient patient) {
     // get new index for new patient
-    int newIndex = QueueController.orderingList(this, patient);
+    int newIndex = orderingList(this, patient);
     // insert new patient
     this.patients.insert(newIndex, patient);
   }

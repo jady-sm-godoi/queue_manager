@@ -14,9 +14,9 @@ void main() {
     if ("Ll".contains(option)) {
       queue.listPatients();
     } else if ("Ii".contains(option)) {
-      QueueController.insert(queue);
+      insert(queue);
     } else if ("Ee".contains(option)) {
-      QueueController.edit(queue);
+      edit(queue);
     } else if ("Cc".contains(option)) {
       queue.callPatient();
     } else if ("Dd".contains(option)) {
