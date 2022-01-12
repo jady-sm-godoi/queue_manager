@@ -5,7 +5,7 @@ import 'views/views.dart';
 
 void main() {
   Queue queue = Queue();
-  title("Welcome to the List Manager!");
+  title("Welcome to the Queue Manager!");
   // print("Welcome to the List Manager!");
 
   while (true) {
