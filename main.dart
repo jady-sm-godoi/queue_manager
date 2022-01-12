@@ -4,7 +4,7 @@ import 'controllers/queue_controller.dart';
 
 void main() {
   Queue queue = Queue();
-  print("Welcome to the show!");
+  print("Welcome to the List Manager!");
 
   while (true) {
     print("\n[L]ist  [I]nsert  [E]dit  [C]all  [D]elete  e[X]it\n");

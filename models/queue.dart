@@ -5,7 +5,7 @@ import '../controllers/queue_controller.dart';
 class Queue {
   List<Patient> patients = [];
 
-  void listPatients() {
+  List? listPatients() {
     print("-" * 80);
     print("LIST OF PATIENTS");
     print("-" * 80 + "\n");
@@ -24,10 +24,19 @@ class Queue {
 
   int searchPatient() {
     listPatients();
-    stdout.write("enter with patient index: ");
-    int index = int.parse(stdin.readLineSync()!);
 
-    return index - 1;
+    String index = "#";
+    while (true) {
+      stdout.write("enter with patient index: ");
+      index = stdin.readLineSync()!;
+      if ((int.tryParse(index) is int) &&
+          (patients.length > num.tryParse(index)! - 1)) {
+        break;
+      } else {
+        print(" \nUnknow index. Try again!");
+      }
+    }
+    return int.parse(index) - 1;
   }
 
   void editPatient(int index, Patient editedPatient) {

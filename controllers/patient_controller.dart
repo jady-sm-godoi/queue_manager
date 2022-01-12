@@ -1,25 +1,46 @@
 import 'dart:io';
 
-class PatientController {
-  static String getName() {
-    stdout.write("\n insert name: ");
-    return stdin.readLineSync()!;
-  }
+String getName() {
+  stdout.write("\n insert name: ");
+  return stdin.readLineSync()!;
+}
 
-  static String getGender() {
+String getGender() {
+  String gender = "#";
+  while (!"MmFf".contains(gender)) {
     print("\n M = 👨  F = 👩");
     stdout.write(" insert gender: ");
-    return stdin.readLineSync()!;
+    gender = stdin.readLineSync()!;
+    if (!"MmFf".contains(gender)) {
+      print(" Unknow option. Try again!");
+    }
   }
+  return gender;
+}
 
-  static int getAge() {
+int getAge() {
+  String age = "#";
+  while (true) {
     stdout.write("\n insert age: ");
-    return int.parse(stdin.readLineSync()!);
+    age = stdin.readLineSync()!;
+    if (int.tryParse(age) is int) {
+      break;
+    } else {
+      print("Unknow value. Try again!");
+    }
   }
+  return int.parse(age);
+}
 
-  static int getLevel() {
+int getLevel() {
+  String level = "#";
+  while (!"123".contains(level)) {
     print("\n 1 = 🟦  2 = 🟨  3 = 🟥");
     stdout.write(" insert level: ");
-    return int.parse(stdin.readLineSync()!);
+    level = stdin.readLineSync()!;
+    if (!"123".contains(level)) {
+      print("Unknow option. Try again!");
+    }
   }
+  return int.parse(level);
 }

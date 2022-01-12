@@ -6,12 +6,11 @@ import 'dart:io';
 Patient insertPatientView(Queue queue) {
   //building new patient for insert
   Patient newPatient = Patient(
-    name: PatientController.getName(),
-    gender: PatientController.getGender(),
-    age: PatientController.getAge(),
-    level: PatientController.getLevel(),
+    name: getName(),
+    gender: getGender(),
+    age: getAge(),
+    level: getLevel(),
   );
-
   return newPatient;
 }
 
@@ -28,13 +27,13 @@ Patient editPatientView(Queue queue, int index) {
     String answer = stdin.readLineSync()!;
 
     if ("Nn".contains(answer)) {
-      editedPatient.name = PatientController.getName();
+      editedPatient.name = getName();
     } else if ("Gg".contains(answer)) {
-      editedPatient.gender = PatientController.getGender();
+      editedPatient.gender = getGender();
     } else if ("Aa".contains(answer)) {
-      editedPatient.age = PatientController.getAge();
+      editedPatient.age = getAge();
     } else if ("Ll".contains(answer)) {
-      editedPatient.level = PatientController.getLevel();
+      editedPatient.level = getLevel();
     } else if ("Xx".contains(answer)) {
       break;
     } else {
