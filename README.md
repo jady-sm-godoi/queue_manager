@@ -3,6 +3,7 @@
 Project to study Object Orientation in Dart. A queue manager for office.
 
 When we call the program, the following menu is presented:
+![Caption for the picture.](/home/jadygodoi/Documentos/Coding/Dart/projects/queue_manager/assets/image/first_menu.png)
 
 - [L]ist:
   To list patients already registered in order of severity, age and arrival.
